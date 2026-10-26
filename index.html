@@ -15,10 +15,20 @@
     p { color: #4a6356; line-height: 1.5; }
     .price { font-size: 22px; font-weight: 700; margin: 18px 0; }
     button { appearance: none; border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 700; cursor: pointer; background: #1f6b4a; color: white; }
+    button.primary { background: #0f8a52; box-shadow: 0 8px 18px rgba(15,138,82,.28); }
     button:hover { filter: brightness(1.05); }
     #cart { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: #f1f8f4; display: none; }
     #cart.visible { display: block; }
-    .promo { display: none; }
+    .promo {
+      display: block;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #dff7e8;
+      color: #0f5c38;
+      font-weight: 700;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -31,8 +41,8 @@
       <div class="promo" id="promo" data-testid="promo-banner">New: free overnight shipping this week</div>
       <h1>Ceramic pour-over set</h1>
       <p>A small product page you can click through while testing Screen Beaver Git PR demos.</p>
-      <div class="price">$48</div>
-      <button type="button" data-testid="add-to-cart" id="add">Add to cart</button>
+      <div class="price">$48 <span style="font-size:13px;font-weight:600;color:#0f8a52;">· ships free</span></div>
+      <button type="button" class="primary" data-testid="add-to-cart" id="add">Add to cart</button>
       <div id="cart" data-testid="cart">
         <strong>In cart:</strong> Ceramic pour-over set × <span id="qty">1</span>
         <div style="margin-top:12px">
