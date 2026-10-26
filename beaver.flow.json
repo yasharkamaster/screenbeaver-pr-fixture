@@ -1,0 +1,15 @@
+﻿{
+  "version": 1,
+  "name": "Fixture checkout",
+  "url": "http://127.0.0.1:4173/",
+  "viewport": { "width": 1280, "height": 800 },
+  "setup": "npx --yes serve -l 4173 .",
+  "timeoutMs": 30000,
+  "steps": [
+    { "click": { "selector": "[data-testid=add-to-cart]" }, "caption": "Add to cart" },
+    { "wait": { "selector": "[data-testid=cart]", "timeoutMs": 5000 } },
+    { "click": { "selector": "[data-testid=checkout]" }, "caption": "Checkout" },
+    { "wait": { "selector": "[data-testid=confirmation]", "timeoutMs": 5000 } },
+    { "wait": { "ms": 800 }, "caption": "Order confirmed" }
+  ]
+}

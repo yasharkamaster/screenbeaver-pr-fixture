@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fixture Shop</title>
+  <style>
+    :root { font-family: "Segoe UI", system-ui, sans-serif; color: #14201a; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(160deg, #eef6f0, #d9ebe0); }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; background: #143528; color: #f4fff8; }
+    header strong { letter-spacing: 0.04em; }
+    main { max-width: 720px; margin: 40px auto; padding: 0 20px; }
+    .card { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 18px 40px rgba(20,53,40,.12); }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    p { color: #4a6356; line-height: 1.5; }
+    .price { font-size: 22px; font-weight: 700; margin: 18px 0; }
+    button { appearance: none; border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 700; cursor: pointer; background: #1f6b4a; color: white; }
+    button:hover { filter: brightness(1.05); }
+    #cart { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: #f1f8f4; display: none; }
+    #cart.visible { display: block; }
+    .promo { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Fixture Shop</strong>
+    <span data-testid="cart-count">Cart · 0</span>
+  </header>
+  <main>
+    <div class="card">
+      <div class="promo" id="promo" data-testid="promo-banner">New: free overnight shipping this week</div>
+      <h1>Ceramic pour-over set</h1>
+      <p>A small product page you can click through while testing Screen Beaver Git PR demos.</p>
+      <div class="price">$48</div>
+      <button type="button" data-testid="add-to-cart" id="add">Add to cart</button>
+      <div id="cart" data-testid="cart">
+        <strong>In cart:</strong> Ceramic pour-over set × <span id="qty">1</span>
+        <div style="margin-top:12px">
+          <button type="button" data-testid="checkout" id="checkout">Checkout</button>
+        </div>
+      </div>
+      <p id="done" data-testid="confirmation" style="display:none;margin-top:16px;color:#1f6b4a;font-weight:700;">Order confirmed — thanks for testing.</p>
+    </div>
+  </main>
+  <script>
+    let qty = 0;
+    const add = document.getElementById("add");
+    const cart = document.getElementById("cart");
+    const count = document.querySelector("[data-testid=cart-count]");
+    const qtyEl = document.getElementById("qty");
+    const checkout = document.getElementById("checkout");
+    const done = document.getElementById("done");
+    add.addEventListener("click", () => {
+      qty += 1;
+      count.textContent = "Cart · " + qty;
+      qtyEl.textContent = String(qty);
+      cart.classList.add("visible");
+    });
+    checkout.addEventListener("click", () => {
+      done.style.display = "block";
+    });
+  </script>
+</body>
+</html>
