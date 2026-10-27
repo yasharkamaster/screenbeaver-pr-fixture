@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -16,6 +16,20 @@
     .price { font-size: 22px; font-weight: 700; margin: 18px 0; }
     button { appearance: none; border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 700; cursor: pointer; background: #1f6b4a; color: white; }
     button.primary { background: #0f8a52; box-shadow: 0 8px 18px rgba(15,138,82,.28); }
+    .gift {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px dashed #c4a35a;
+      background: #fff8e8;
+      color: #6b4e16;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .gift input { width: 16px; height: 16px; accent-color: #c4a35a; }
     button:hover { filter: brightness(1.05); }
     #cart { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: #f1f8f4; display: none; }
     #cart.visible { display: block; }
@@ -39,6 +53,7 @@
   <main>
     <div class="card">
       <div class="promo" id="promo" data-testid="promo-banner">New: free overnight shipping this week</div>
+      <label class="gift" data-testid="gift-wrap"><input type="checkbox" id="gift" /> Add gift wrap (+$6) — ribbon + handwritten note</label>
       <h1>Ceramic pour-over set</h1>
       <p>A small product page you can click through while testing Screen Beaver Git PR demos.</p>
       <div class="price">$48 <span style="font-size:13px;font-weight:600;color:#0f8a52;">· ships free</span></div>
@@ -49,7 +64,7 @@
           <button type="button" data-testid="checkout" id="checkout">Checkout</button>
         </div>
       </div>
-      <p id="done" data-testid="confirmation" style="display:none;margin-top:16px;color:#1f6b4a;font-weight:700;">Order confirmed — thanks for testing.</p>
+      <p id="done" data-testid="confirmation" style="display:none;margin-top:16px;color:#1f6b4a;font-weight:700;">Order confirmed — gift wrap included when selected. Thanks for testing.</p>
     </div>
   </main>
   <script>
